@@ -1,6 +1,6 @@
 import { Button } from 'konsta/react';
-import GroupItem from '../../components/UI/group/GroupItem';
 import ScreenTitle from '../../components/UI/typography/ScreenTitle';
+import GroupItem from './components/GroupItem';
 
 const groups = [
   { name: 'Personal', balance: 10, spent: 30, budget: 100 },
@@ -9,18 +9,18 @@ const groups = [
 ];
 
 const GroupsScreen = () => {
+  const renderGroups = () => {
+    return groups.map((group) => <GroupItem key={group.name} group={group} />);
+  };
+
   return (
     <div>
       <div className="flex items-center justify-between m-4">
         <ScreenTitle title="Groups" />
-        <Button className="w-fit">Add</Button>
+        <Button className="w-auto">Add</Button>
       </div>
 
-      <div className="flex flex-col gap-3 py-2">
-        {groups.map((group) => (
-          <GroupItem group={group} />
-        ))}
-      </div>
+      <div className="flex flex-col gap-3 py-2">{renderGroups()}</div>
     </div>
   );
 };
