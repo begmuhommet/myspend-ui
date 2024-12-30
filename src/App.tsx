@@ -7,28 +7,14 @@ import AppRouter from './router/AppRouter';
 
 function MyApp() {
   // States
-  const [options, setOptions] = useState({ platform: 'ios', theme: 'dark' });
-
-  // Handlers
-  const handleChangeTheme = (value: string) => {
-    setOptions((prevState) => ({ ...prevState, theme: value }));
-  };
-
-  const handleChangePlatform = (value: string) => {
-    setOptions((prevState) => ({ ...prevState, platform: value }));
-  };
+  const [options] = useState({ platform: 'ios', theme: 'dark' });
 
   // Renders
   return (
     <BrowserRouter>
       <App safeAreas theme={options.platform === 'material' ? 'material' : 'ios'} dark={options.theme === 'dark'}>
         <Page>
-          <Header
-            platform={options.platform}
-            theme={options.theme}
-            onChangePlatform={handleChangePlatform}
-            onChangeTheme={handleChangeTheme}
-          />
+          <Header />
           <AppRouter />
           <Navbar />
         </Page>
