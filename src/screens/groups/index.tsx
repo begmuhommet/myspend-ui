@@ -1,5 +1,5 @@
 import { Button } from 'konsta/react';
-import ScreenTitle from '../../components/UI/typography/ScreenTitle';
+import ScreenTitle from 'src/components/UI/typography/ScreenTitle';
 import GroupItem from './components/GroupItem';
 
 const groups = [

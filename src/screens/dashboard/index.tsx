@@ -1,9 +1,9 @@
 import { Card, Icon } from 'konsta/react';
 import { GiTwoCoins } from 'react-icons/gi';
 import { IoArrowDown, IoArrowUp } from 'react-icons/io5';
-import ScreenTitle from '../../components/UI/typography/ScreenTitle';
-import SectionTitle from '../../components/UI/typography/SectionTitle';
-import Transaction from '../transactions/components/Transaction';
+import ScreenTitle from 'src/components/UI/typography/ScreenTitle';
+import SectionTitle from 'src/components/UI/typography/SectionTitle';
+import Transaction from 'src/screens/transactions/components/Transaction';
 
 const latestSpends = [
   { label: 'Washed car', amount: 123000.0, category: 'Cars' },
