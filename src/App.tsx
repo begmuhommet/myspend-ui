@@ -1,9 +1,9 @@
 import { App, Page } from 'konsta/react';
 import { useState } from 'react';
 import { BrowserRouter } from 'react-router';
-import Header from './components/header/index';
-import Navbar from './components/navbar/index';
-import AppRouter from './router/AppRouter';
+import Header from 'src/components/header/index';
+import Navbar from 'src/components/navbar/index';
+import AppRouter from 'src/router/AppRouter';
 
 function MyApp() {
   // States
