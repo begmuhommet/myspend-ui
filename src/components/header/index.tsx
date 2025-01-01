@@ -1,7 +1,7 @@
 import { Icon, Navbar } from 'konsta/react';
 import { IoPerson } from 'react-icons/io5';
 import { NavLink } from 'react-router';
-import logoPath from 'src/assets/logo.svg';
+import logoPath from '/logo.svg';
 
 const Header = () => {
   // Renders

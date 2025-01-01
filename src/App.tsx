@@ -1,7 +1,6 @@
 import { App, Page } from 'konsta/react';
 import { useState } from 'react';
 import { BrowserRouter } from 'react-router';
-import Header from 'src/components/header';
 import Navbar from 'src/components/navbar';
 import AppRouter from 'src/router/AppRouter';
 
@@ -14,7 +13,7 @@ function MyApp() {
     <BrowserRouter>
       <App safeAreas theme={options.platform} dark={!!options.theme}>
         <Page>
-          <Header />
+          {/* <Header /> */}
           <AppRouter />
           <Navbar />
         </Page>

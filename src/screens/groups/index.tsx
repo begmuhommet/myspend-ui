@@ -1,4 +1,4 @@
-import { Button } from 'konsta/react';
+import { Block, Button } from 'konsta/react';
 import ScreenTitle from 'src/components/UI/typography/ScreenTitle';
 import GroupItem from './components/GroupItem';
 
@@ -15,10 +15,10 @@ const GroupsScreen = () => {
 
   return (
     <div>
-      <div className="flex items-center justify-between m-4">
+      <Block className="flex items-center justify-between">
         <ScreenTitle title="Groups" />
-        <Button className="w-auto">Add</Button>
-      </div>
+        <Button inline>Add</Button>
+      </Block>
 
       <div className="flex flex-col gap-3 py-2">{renderGroups()}</div>
     </div>

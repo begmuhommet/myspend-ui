@@ -1,9 +1,9 @@
-import { Card, Icon } from 'konsta/react';
+import { Block, Card, Icon } from 'konsta/react';
 import { GiTwoCoins } from 'react-icons/gi';
 import { IoArrowDown, IoArrowUp } from 'react-icons/io5';
 import ScreenTitle from 'src/components/UI/typography/ScreenTitle';
 import SectionTitle from 'src/components/UI/typography/SectionTitle';
-import Transaction from 'src/screens/transactions/components/Transaction';
+import TransactionItem from 'src/screens/transactions/components/TransactionItem';
 
 const latestSpends = [
   { label: 'Washed car', amount: 123000.0, category: 'Cars' },
@@ -17,14 +17,14 @@ const latestSpends = [
 const DashboardScreen = () => {
   // Renders
   const renderLatestTransactions = () => {
-    return latestSpends.map((spend) => <Transaction key={spend.label} spend={spend} />);
+    return latestSpends.map((spend) => <TransactionItem key={spend.label} spend={spend} />);
   };
 
   return (
     <div className="mb-24">
-      <div className="m-4">
+      <Block>
         <ScreenTitle title="Dashboard" />
-      </div>
+      </Block>
 
       <Card className="relative">
         <div className="flex items-center justify-between">
