@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router';
 import DeleteConfirmDialog from 'src/components/UI/DeleteConfirmDialog';
 import ScreenTitle from 'src/components/UI/typography/ScreenTitle';
 import { mockTransactions } from 'src/mocks/mock-transactions';
-import GroupActions from '../groups/components/GroupActions';
+import GroupActions from './components/GroupActions';
 import TransactionItem from './components/TransactionItem';
 
 const TransactionsScreen = () => {
