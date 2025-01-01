@@ -1,31 +1,18 @@
-import { Block, Card, Icon } from 'konsta/react';
+import { Card, Icon } from 'konsta/react';
 import { GiTwoCoins } from 'react-icons/gi';
 import { IoArrowDown, IoArrowUp } from 'react-icons/io5';
-import ScreenTitle from 'src/components/UI/typography/ScreenTitle';
 import SectionTitle from 'src/components/UI/typography/SectionTitle';
+import { mockTransactions } from 'src/mocks/mock-transactions';
 import TransactionItem from 'src/screens/transactions/components/TransactionItem';
-
-const latestSpends = [
-  { label: 'Washed car', amount: 123000.0, category: 'Cars' },
-  { label: 'Grocery shopping', amount: 200000.0, category: 'Food' },
-  { label: 'Electricity bill', amount: 150000.0, category: 'Utilities' },
-  { label: 'Gym membership', amount: 50000.0, category: 'Health' },
-  { label: 'Movie tickets', amount: 30000.0, category: 'Entertainment' },
-  { label: 'Coffee', amount: 5000.0, category: 'Beverages' },
-];
 
 const DashboardScreen = () => {
   // Renders
   const renderLatestTransactions = () => {
-    return latestSpends.map((spend) => <TransactionItem key={spend.label} spend={spend} />);
+    return mockTransactions.map((transaction) => <TransactionItem key={transaction.label} transaction={transaction} />);
   };
 
   return (
     <div className="mb-24">
-      <Block>
-        <ScreenTitle title="Dashboard" />
-      </Block>
-
       <Card className="relative">
         <div className="flex items-center justify-between">
           <div className="flex flex-col gap-2">

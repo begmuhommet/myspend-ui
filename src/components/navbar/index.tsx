@@ -17,11 +17,14 @@ const Navbar = () => {
 
   // Variables
   const isActive = (link: string) => {
-    if (link === '/') {
-      return pathname === '/';
+    const routes = pathname.split('/').filter((item) => item.length > 1);
+    const linkName = link.split('/').pop();
+
+    if (routes.length === 0) {
+      return link === '/';
     }
 
-    return pathname.includes(link);
+    return routes[0] === linkName;
   };
 
   // Handlers

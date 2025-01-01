@@ -11,7 +11,7 @@ function MyApp() {
   // Renders
   return (
     <BrowserRouter>
-      <App safeAreas theme={options.platform} dark={!!options.theme}>
+      <App safeAreas theme={options.platform} dark={!!options.theme} className="mb-24">
         <Page>
           {/* <Header /> */}
           <AppRouter />

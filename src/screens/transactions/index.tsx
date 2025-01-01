@@ -1,53 +1,77 @@
-import { Block, List, ListInput, Segmented, SegmentedButton } from 'konsta/react';
+import { Block } from 'konsta/react';
 import { useState } from 'react';
+import { IoChevronBack, IoSettingsOutline } from 'react-icons/io5';
+import { useNavigate, useParams } from 'react-router';
+import DeleteConfirmDialog from 'src/components/UI/DeleteConfirmDialog';
+import ScreenTitle from 'src/components/UI/typography/ScreenTitle';
+import { mockTransactions } from 'src/mocks/mock-transactions';
+import GroupActions from '../groups/components/GroupActions';
+import TransactionItem from './components/TransactionItem';
 
 const TransactionsScreen = () => {
-  // States
-  const [data, setData] = useState<{ type: string }>({ type: 'spend' });
+  const [open, setOpen] = useState({ action: false, delete: false });
+
+  // Hooks
+  const navigate = useNavigate();
+  const { groupId } = useParams();
 
   // Handlers
-  const handleChangeData = (key: keyof typeof data, value: string) => {
-    setData((prevState) => ({ ...prevState, [key]: value }));
+  const handleGoBack = () => {
+    navigate('/groups');
+  };
+
+  const handleClose = (key: keyof typeof open, value: boolean) => {
+    setOpen({ ...open, [key]: value });
+  };
+
+  const handleEdit = () => {
+    navigate(`/groups/${groupId}/edit`);
+  };
+
+  const handleOpenDelete = () => {
+    setOpen({ action: false, delete: true });
+  };
+
+  const handleMembers = () => {
+    navigate(`/groups/${groupId}/members`);
+  };
+
+  const handleDelete = () => {
+    setOpen((prevState) => ({ ...prevState, delete: false }));
   };
 
   // Renders
+  const renderTransactions = () => {
+    return mockTransactions.map((transaction) => <TransactionItem key={transaction.label} transaction={transaction} />);
+  };
+
   return (
     <div>
-      <Block>
-        <Segmented strong>
-          <SegmentedButton strong active={data.type === 'spend'} onClick={() => handleChangeData('type', 'spend')}>
-            Spend
-          </SegmentedButton>
-          <SegmentedButton strong active={data.type === 'income'} onClick={() => handleChangeData('type', 'income')}>
-            Income
-          </SegmentedButton>
-        </Segmented>
+      <Block className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <IoChevronBack className="w-4 h-4" onClick={handleGoBack} />
+          <ScreenTitle title="Group Transactions" />
+        </div>
+        <IoSettingsOutline className="w-5 h-5" onClick={() => handleClose('action', true)} />
       </Block>
 
-      <List strong inset className="py-4">
-        <ListInput outline type="number" accept="number" label="Amount" placeholder="300" className="block mb-2" />
-        <div className="py-0.5" />
-        <ListInput outline type="text" label="Label" placeholder="Rent payment" />
-        <div className="py-0.5" />
-        <ListInput outline type="select" label="Group" placeholder="Personal" dropdown>
-          <option value="personal">Personal</option>
-          <option value="family">Family</option>
-        </ListInput>
-        <div className="py-0.5" />
-        <ListInput outline type="select" label="Category" placeholder="Category name" dropdown>
-          <option value="grocery">Grocery</option>
-          <option value="transport">Transport</option>
-        </ListInput>
+      <Block className="flex flex-col gap-2">{renderTransactions()}</Block>
 
-        <div className="py-0.5" />
-        <ListInput
-          outline
-          type="textarea"
-          label="Description (optional)"
-          placeholder="Some other description you want to add"
-          inputClassName="!h-20 resize-none"
-        />
-      </List>
+      <GroupActions
+        open={open.action}
+        onClose={() => handleClose('action', false)}
+        onEdit={handleEdit}
+        onDelete={handleOpenDelete}
+        onMembers={handleMembers}
+      />
+
+      <DeleteConfirmDialog
+        open={open.delete}
+        onClose={() => handleClose('delete', false)}
+        onConfirm={handleDelete}
+        title="Delete Group"
+        description="Are you sure you want to delete this group?"
+      />
     </div>
   );
 };

@@ -2,16 +2,34 @@ import { Route, Routes } from 'react-router';
 import CategoriesScreen from 'src/screens/categories';
 import DashboardScreen from 'src/screens/dashboard';
 import GroupsScreen from 'src/screens/groups';
+import AddGroupScreen from 'src/screens/groups/AddGroupScreen';
+import EditGroupScreen from 'src/screens/groups/EditGroupScreen';
+import GroupMembersScreen from 'src/screens/groups/GroupMembersScreen';
 import ReportsScreen from 'src/screens/reports';
 import TransactionsScreen from 'src/screens/transactions';
+import AddTransactionScreen from 'src/screens/transactions/AddTransactionScreen';
+import EditTransactionScreen from 'src/screens/transactions/EditTransactionScreen';
 
 const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<DashboardScreen />} />
-      <Route path="/groups" element={<GroupsScreen />} />
-      <Route path="/transactions" element={<TransactionsScreen />} />
-      <Route path="/categories" element={<CategoriesScreen />} />
+      <Route index element={<DashboardScreen />} />
+      <Route path="/groups">
+        <Route index element={<GroupsScreen />} />
+        <Route path=":groupId/transactions" element={<TransactionsScreen />} />
+        <Route path=":groupId/edit" element={<EditGroupScreen />} />
+        <Route path=":groupId/members" element={<GroupMembersScreen />} />
+        <Route path="add" element={<AddGroupScreen />} />
+      </Route>
+      <Route path="/transactions">
+        <Route index element={<AddTransactionScreen />} />
+        <Route path=":transactionId/edit" element={<EditTransactionScreen />} />
+      </Route>
+      <Route path="/categories">
+        <Route index element={<CategoriesScreen />} />
+        <Route path="add" element={<CategoriesScreen />} />
+        <Route path=":categoryId/edit" element={<CategoriesScreen />} />
+      </Route>
       <Route path="/reports" element={<ReportsScreen />} />
     </Routes>
   );

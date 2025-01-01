@@ -17,7 +17,7 @@ const GroupsScreen = () => {
     <div>
       <Block className="flex items-center justify-between">
         <ScreenTitle title="Groups" />
-        <Button inline>Add</Button>
+        <Button inline>Add group</Button>
       </Block>
 
       <div className="flex flex-col gap-3 py-2">{renderGroups()}</div>
