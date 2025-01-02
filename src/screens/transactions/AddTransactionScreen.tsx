@@ -17,17 +17,17 @@ const AddTransactionScreen = () => {
         </Segmented>
       </Block>
 
-      <List strongIos insetIos>
-        <ListInput outline label="Amount" type="number" accept="number" placeholder="300" />
+      <List>
+        <ListInput label="Amount" type="number" accept="number" placeholder="300" />
         <div className="py-0.5" />
-        <ListInput outline label="Label" type="text" placeholder="Car wash" />
+        <ListInput label="Label" type="text" placeholder="Car wash" />
         <div className="py-0.5" />
-        <ListInput outline label="Category" type="select" dropdown placeholder="Personal">
+        <ListInput label="Category" type="select" dropdown placeholder="Personal">
           <option value="personal">Personal</option>
           <option value="business">Business</option>
         </ListInput>
         <div className="py-0.5" />
-        <ListInput outline label="Date" type="select" dropdown placeholder="Car">
+        <ListInput label="Date" type="select" dropdown placeholder="Car">
           <option value="home">Home</option>
           <option value="work">Work</option>
         </ListInput>
