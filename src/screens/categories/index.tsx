@@ -25,7 +25,7 @@ const CategoriesScreen = () => {
   };
 
   const handleEdit = (id: string) => {
-    navigate(`/categories/${id}/edit`);
+    navigate(`/settings/categories/${id}/edit`);
   };
 
   const handleCloseDelete = () => {
@@ -50,7 +50,7 @@ const CategoriesScreen = () => {
           <BackIcon onClick={handleGoBack} />
           <ScreenTitle title="Categories" />
         </div>
-        <NavLink to="/categories/add">
+        <NavLink to="/settings/categories/add">
           <Button inline>Add category</Button>
         </NavLink>
       </ScreenHeader>
