@@ -1,22 +1,60 @@
 import { Button } from 'konsta/react';
+import { useState } from 'react';
+import { NavLink, useNavigate } from 'react-router';
+import DeleteConfirmDialog from 'src/components/UI/DeleteConfirmDialog';
 import ScreenTitle from 'src/components/UI/typography/ScreenTitle';
 import { mockCategories } from 'src/mocks/mock-categories';
 import CategoryItem from './components/CategoryItem';
 
 const CategoriesScreen = () => {
+  const [open, setOpen] = useState(false);
+
+  // Hooks
+  const navigate = useNavigate();
+
+  // Handlers
+  const handleOpenDelete = () => {
+    setOpen(true);
+  };
+
+  const handleDelete = () => {
+    console.log('delete');
+    handleCloseDelete();
+  };
+
+  const handleEdit = (id: string) => {
+    navigate(`/categories/${id}/edit`);
+  };
+
+  const handleCloseDelete = () => {
+    setOpen(false);
+  };
+
   // Renders
   const renderCategories = () => {
-    return mockCategories.map((category) => <CategoryItem key={category.id} category={category.name} />);
+    return mockCategories.map((category) => (
+      <CategoryItem key={category.id} category={category.name} onDelete={handleOpenDelete} onEdit={handleEdit} />
+    ));
   };
 
   return (
     <div className="m-4">
       <div className="flex items-center justify-between mb-4">
         <ScreenTitle title="Categories" />
-        <Button inline>Add category</Button>
+        <NavLink to="/categories/add">
+          <Button inline>Add category</Button>
+        </NavLink>
       </div>
 
       <div className="flex flex-col gap-2">{renderCategories()}</div>
+
+      <DeleteConfirmDialog
+        title="Delete category"
+        description="Are you sure you want to delete this category?"
+        open={open}
+        onClose={handleCloseDelete}
+        onConfirm={handleDelete}
+      />
     </div>
   );
 };

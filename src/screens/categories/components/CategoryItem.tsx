@@ -1,15 +1,16 @@
 import { Card, Icon } from 'konsta/react';
 import { FC } from 'react';
 import { TbEdit, TbTrash } from 'react-icons/tb';
-import { NavLink } from 'react-router';
 import { categoryIcons } from 'src/mocks/mock-categories';
 
 type IProps = {
   category: string;
+  onDelete: () => void;
+  onEdit: (id: string) => void;
 };
 
 const CategoryItem: FC<IProps> = (props) => {
-  const { category } = props;
+  const { category, onDelete, onEdit } = props;
 
   return (
     <Card className="!m-0">
@@ -20,12 +21,8 @@ const CategoryItem: FC<IProps> = (props) => {
         </div>
 
         <div className="flex items-center gap-3">
-          <NavLink to="/">
-            <Icon ios={<TbEdit className="w-5 h-5" />} />
-          </NavLink>
-          <NavLink to="/">
-            <Icon ios={<TbTrash className="w-5 h-5" />} />
-          </NavLink>
+          <Icon ios={<TbEdit className="w-5 h-5" />} onClick={() => onEdit(category)} />
+          <Icon ios={<TbTrash className="w-5 h-5" />} onClick={onDelete} />
         </div>
       </div>
     </Card>

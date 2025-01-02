@@ -1,5 +1,7 @@
 import { Route, Routes } from 'react-router';
 import CategoriesScreen from 'src/screens/categories';
+import AddCategoryScreen from 'src/screens/categories/AddCategoryScreen';
+import EditCategoryScreen from 'src/screens/categories/EditCategoryScreen';
 import DashboardScreen from 'src/screens/dashboard';
 import GroupsScreen from 'src/screens/groups';
 import AddGroupScreen from 'src/screens/groups/AddGroupScreen';
@@ -27,8 +29,8 @@ const AppRouter = () => {
       </Route>
       <Route path="/categories">
         <Route index element={<CategoriesScreen />} />
-        <Route path="add" element={<CategoriesScreen />} />
-        <Route path=":categoryId/edit" element={<CategoriesScreen />} />
+        <Route path="add" element={<AddCategoryScreen />} />
+        <Route path=":categoryId/edit" element={<EditCategoryScreen />} />
       </Route>
       <Route path="/reports" element={<ReportsScreen />} />
     </Routes>
