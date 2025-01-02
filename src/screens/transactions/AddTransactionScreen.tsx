@@ -1,5 +1,6 @@
 import { Block, Button, List, ListInput, Segmented, SegmentedButton } from 'konsta/react';
 import { useState } from 'react';
+import ScreenHeader from 'src/components/UI/ScreenHeader';
 import { mockCategories } from 'src/mocks/mock-categories';
 import { mockGroups } from 'src/mocks/mock-groups';
 
@@ -7,7 +8,6 @@ const AddTransactionScreen = () => {
   const [activeSegmented, setActiveSegmented] = useState(1);
 
   // Renders
-
   const renderGroups = () => {
     return mockGroups.map((item) => (
       <option value={item.id}>
@@ -25,8 +25,8 @@ const AddTransactionScreen = () => {
   };
 
   return (
-    <div>
-      <Block>
+    <>
+      <ScreenHeader>
         <Segmented strong>
           <SegmentedButton strong active={activeSegmented === 1} onClick={() => setActiveSegmented(1)}>
             Spend
@@ -35,7 +35,7 @@ const AddTransactionScreen = () => {
             Income
           </SegmentedButton>
         </Segmented>
-      </Block>
+      </ScreenHeader>
 
       <List className="pr-4">
         <ListInput label="Amount" type="number" accept="number" placeholder="300" />
@@ -54,7 +54,7 @@ const AddTransactionScreen = () => {
           <Button>Add Transaction</Button>
         </Block>
       </List>
-    </div>
+    </>
   );
 };
 

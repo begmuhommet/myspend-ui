@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { IoChevronBack, IoSettingsOutline } from 'react-icons/io5';
 import { useNavigate, useParams } from 'react-router';
 import DeleteConfirmDialog from 'src/components/UI/DeleteConfirmDialog';
+import ScreenHeader from 'src/components/UI/ScreenHeader';
 import ScreenTitle from 'src/components/UI/typography/ScreenTitle';
 import { mockTransactions } from 'src/mocks/mock-transactions';
 import GroupActions from './components/GroupActions';
@@ -46,14 +47,14 @@ const TransactionsScreen = () => {
   };
 
   return (
-    <div>
-      <Block className="flex items-center justify-between">
+    <>
+      <ScreenHeader className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <IoChevronBack className="w-4 h-4" onClick={handleGoBack} />
           <ScreenTitle title="Group Transactions" />
         </div>
         <IoSettingsOutline className="w-5 h-5" onClick={() => handleClose('action', true)} />
-      </Block>
+      </ScreenHeader>
 
       <Block className="flex flex-col gap-2">{renderTransactions()}</Block>
 
@@ -72,7 +73,7 @@ const TransactionsScreen = () => {
         title="Delete Group"
         description="Are you sure you want to delete this group?"
       />
-    </div>
+    </>
   );
 };
 

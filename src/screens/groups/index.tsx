@@ -1,8 +1,9 @@
-import { Block, Button } from 'konsta/react';
+import { Button } from 'konsta/react';
+import { NavLink } from 'react-router';
+import ScreenHeader from 'src/components/UI/ScreenHeader';
 import ScreenTitle from 'src/components/UI/typography/ScreenTitle';
 import { mockGroups } from 'src/mocks/mock-groups';
 import GroupItem from './components/GroupItem';
-import { NavLink } from 'react-router';
 
 const GroupsScreen = () => {
   const renderGroups = () => {
@@ -10,16 +11,16 @@ const GroupsScreen = () => {
   };
 
   return (
-    <div>
-      <Block className="flex items-center justify-between">
+    <>
+      <ScreenHeader className="flex items-center justify-between">
         <ScreenTitle title="Groups" />
         <NavLink to="/groups/add">
           <Button inline>Add group</Button>
         </NavLink>
-      </Block>
+      </ScreenHeader>
 
       <div className="flex flex-col gap-3 py-2">{renderGroups()}</div>
-    </div>
+    </>
   );
 };
 

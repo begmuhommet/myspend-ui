@@ -1,8 +1,9 @@
-import { Block, Button } from 'konsta/react';
+import { Button } from 'konsta/react';
 import { useState } from 'react';
 import { NavLink, useNavigate, useParams } from 'react-router';
 import BackIcon from 'src/components/UI/BackIcon';
 import DeleteConfirmDialog from 'src/components/UI/DeleteConfirmDialog';
+import ScreenHeader from 'src/components/UI/ScreenHeader';
 import ScreenTitle from 'src/components/UI/typography/ScreenTitle';
 import { mockMembers } from 'src/mocks/mock-members';
 import MemberItem from './components/MemberItem';
@@ -42,8 +43,8 @@ const GroupMembersScreen = () => {
   };
 
   return (
-    <div>
-      <Block className="flex items-center gap-2 justify-between">
+    <>
+      <ScreenHeader className="flex items-center gap-2 justify-between">
         <div className="flex items-center gap-3">
           <BackIcon onClick={handleGoBack} />
           <ScreenTitle title="Group members" />
@@ -52,7 +53,7 @@ const GroupMembersScreen = () => {
         <NavLink to={`/groups/${groupId}/members/add`}>
           <Button inline>Add member</Button>
         </NavLink>
-      </Block>
+      </ScreenHeader>
 
       <div className="flex flex-col gap-3 m-4">{renderMembers()}</div>
 
@@ -63,7 +64,7 @@ const GroupMembersScreen = () => {
         onClose={() => setOpenDelete(false)}
         onConfirm={handleDeleteMember}
       />
-    </div>
+    </>
   );
 };
 

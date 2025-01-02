@@ -11,8 +11,8 @@ const BackIcon: FC<TProps> = (props) => {
 
   return (
     <Icon
-      ios={<IoChevronBack className="w-4 h-4" onClick={onClick} />}
-      material={<IoChevronBack className="w-4 h-4" onClick={onClick} />}
+      ios={<IoChevronBack className="w-5 h-5" onClick={onClick} />}
+      material={<IoChevronBack className="w-5 h-5" onClick={onClick} />}
     />
   );
 };

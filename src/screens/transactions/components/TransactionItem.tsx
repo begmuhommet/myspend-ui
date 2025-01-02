@@ -1,18 +1,20 @@
+import clsx from 'clsx';
 import { Card } from 'konsta/react';
 import { FC } from 'react';
 import { NavLink } from 'react-router';
 import { categoryIcons } from 'src/mocks/mock-categories';
 
 type TProps = {
-  transaction: { label: string; amount: number; category: string };
+  transaction: { id: string; label: string; amount: number; category: string; type: string };
 };
 
 const TransactionItem: FC<TProps> = (props) => {
   const { transaction } = props;
+  const isIncome = transaction.type === 'income';
 
   // Renders
   return (
-    <NavLink to={`/transactions/${transaction.label}/edit`}>
+    <NavLink to={`/transactions/${transaction.id}/edit`}>
       <Card className="!m-0">
         <div className="flex items-center justify-between">
           <div className="flex items-center justify-between gap-3">
@@ -23,7 +25,10 @@ const TransactionItem: FC<TProps> = (props) => {
             </div>
           </div>
 
-          <span className="text-md font-extrabold">{transaction.amount}</span>
+          <span className={clsx('text-md font-extrabold', isIncome ? 'text-green-500' : 'text-red-500')}>
+            {isIncome ? '+' : '-'}
+            {transaction.amount}
+          </span>
         </div>
       </Card>
     </NavLink>

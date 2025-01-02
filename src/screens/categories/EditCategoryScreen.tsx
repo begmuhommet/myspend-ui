@@ -1,6 +1,8 @@
 import { Block, Button, List, ListInput } from 'konsta/react';
 import { useNavigate } from 'react-router';
 import BackIcon from 'src/components/UI/BackIcon';
+import EmojiInput from 'src/components/UI/EmojiInput';
+import ScreenHeader from 'src/components/UI/ScreenHeader';
 import ScreenTitle from 'src/components/UI/typography/ScreenTitle';
 
 const EditCategoryScreen = () => {
@@ -14,16 +16,16 @@ const EditCategoryScreen = () => {
 
   // Renders
   return (
-    <div>
-      <Block className="flex items-center gap-3">
+    <>
+      <ScreenHeader className="flex items-center gap-3">
         <BackIcon onClick={handleBack} />
         <ScreenTitle title="Edit category" />
-      </Block>
+      </ScreenHeader>
 
       <List className="pr-4">
         <ListInput label="Name" type="text" placeholder="Grocery" />
         <div className="py-0.5" />
-        <ListInput label="Icon" type="text" placeholder="🍛" />
+        <EmojiInput value="🍛" onSelect={() => {}} />
         <div className="py-0.5" />
         <ListInput label="Budget" type="number" placeholder="3000" />
 
@@ -31,7 +33,7 @@ const EditCategoryScreen = () => {
           <Button>Save</Button>
         </Block>
       </List>
-    </div>
+    </>
   );
 };
 

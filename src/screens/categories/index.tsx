@@ -2,6 +2,7 @@ import { Button } from 'konsta/react';
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router';
 import DeleteConfirmDialog from 'src/components/UI/DeleteConfirmDialog';
+import ScreenHeader from 'src/components/UI/ScreenHeader';
 import ScreenTitle from 'src/components/UI/typography/ScreenTitle';
 import { mockCategories } from 'src/mocks/mock-categories';
 import CategoryItem from './components/CategoryItem';
@@ -38,15 +39,15 @@ const CategoriesScreen = () => {
   };
 
   return (
-    <div className="m-4">
-      <div className="flex items-center justify-between mb-4">
+    <>
+      <ScreenHeader className="flex items-center justify-between">
         <ScreenTitle title="Categories" />
         <NavLink to="/categories/add">
           <Button inline>Add category</Button>
         </NavLink>
-      </div>
+      </ScreenHeader>
 
-      <div className="flex flex-col gap-2">{renderCategories()}</div>
+      <div className="flex flex-col gap-2 m-4">{renderCategories()}</div>
 
       <DeleteConfirmDialog
         title="Delete category"
@@ -55,7 +56,7 @@ const CategoriesScreen = () => {
         onClose={handleCloseDelete}
         onConfirm={handleDelete}
       />
-    </div>
+    </>
   );
 };
 

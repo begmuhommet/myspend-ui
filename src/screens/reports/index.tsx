@@ -1,4 +1,4 @@
-import { Block } from 'konsta/react';
+import ScreenHeader from 'src/components/UI/ScreenHeader';
 import ScreenTitle from 'src/components/UI/typography/ScreenTitle';
 import Example1 from './components/Example1';
 import Example2 from './components/Example2';
@@ -6,10 +6,10 @@ import Example3 from './components/Example3';
 
 const ReportsScreen = () => {
   return (
-    <div className="h-full">
-      <Block>
+    <>
+      <ScreenHeader>
         <ScreenTitle title="Reports" />
-      </Block>
+      </ScreenHeader>
 
       <div className="h-[300px]">
         <Example3 />
@@ -22,7 +22,7 @@ const ReportsScreen = () => {
       <div className="h-[300px]">
         <Example1 />
       </div>
-    </div>
+    </>
   );
 };
 
