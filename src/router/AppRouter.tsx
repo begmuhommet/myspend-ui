@@ -4,6 +4,7 @@ import AddCategoryScreen from 'src/screens/categories/AddCategoryScreen';
 import EditCategoryScreen from 'src/screens/categories/EditCategoryScreen';
 import DashboardScreen from 'src/screens/dashboard';
 import GroupsScreen from 'src/screens/groups';
+import AddGroupMemberScreen from 'src/screens/groups/AddGroupMemberScreen';
 import AddGroupScreen from 'src/screens/groups/AddGroupScreen';
 import EditGroupScreen from 'src/screens/groups/EditGroupScreen';
 import GroupMembersScreen from 'src/screens/groups/GroupMembersScreen';
@@ -21,6 +22,7 @@ const AppRouter = () => {
         <Route path=":groupId/transactions" element={<TransactionsScreen />} />
         <Route path=":groupId/edit" element={<EditGroupScreen />} />
         <Route path=":groupId/members" element={<GroupMembersScreen />} />
+        <Route path=":groupId/members/add" element={<AddGroupMemberScreen />} />
         <Route path="add" element={<AddGroupScreen />} />
       </Route>
       <Route path="/transactions">
