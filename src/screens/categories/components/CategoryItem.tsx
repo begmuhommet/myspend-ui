@@ -2,7 +2,7 @@ import { Card, Icon } from 'konsta/react';
 import { FC } from 'react';
 import { TbEdit, TbTrash } from 'react-icons/tb';
 import { NavLink } from 'react-router';
-import CategoryIcon from './CategoryIcon';
+import { categoryIcons } from 'src/mocks/mock-categories';
 
 type IProps = {
   category: string;
@@ -15,7 +15,7 @@ const CategoryItem: FC<IProps> = (props) => {
     <Card className="!m-0">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <CategoryIcon category={category} />
+          {categoryIcons[category as keyof typeof categoryIcons]}
           <h2 className="text-md font-medium">{category}</h2>
         </div>
 

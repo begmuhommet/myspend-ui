@@ -1,13 +1,12 @@
 import { Button } from 'konsta/react';
 import ScreenTitle from 'src/components/UI/typography/ScreenTitle';
+import { mockCategories } from 'src/mocks/mock-categories';
 import CategoryItem from './components/CategoryItem';
-
-const categories = ['Food', 'Cars', 'Utilities', 'Health', 'Entertainment', 'Beverages'];
 
 const CategoriesScreen = () => {
   // Renders
   const renderCategories = () => {
-    return categories.map((category) => <CategoryItem key={category} category={category} />);
+    return mockCategories.map((category) => <CategoryItem key={category.id} category={category.name} />);
   };
 
   return (

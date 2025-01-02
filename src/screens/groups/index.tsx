@@ -1,16 +1,11 @@
 import { Block, Button } from 'konsta/react';
 import ScreenTitle from 'src/components/UI/typography/ScreenTitle';
+import { mockGroups } from 'src/mocks/mock-groups';
 import GroupItem from './components/GroupItem';
-
-const groups = [
-  { name: 'Personal', balance: 10, spent: 30, budget: 100 },
-  { name: 'Family', balance: 140, spent: 80, budget: 150 },
-  { name: 'Business', balance: 50, spent: 100, budget: 200 },
-];
 
 const GroupsScreen = () => {
   const renderGroups = () => {
-    return groups.map((group) => <GroupItem key={group.name} group={group} />);
+    return mockGroups?.map((group) => <GroupItem key={group.name} group={group} />);
   };
 
   return (
