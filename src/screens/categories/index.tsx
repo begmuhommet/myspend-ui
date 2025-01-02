@@ -1,6 +1,7 @@
 import { Button } from 'konsta/react';
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router';
+import BackIcon from 'src/components/UI/BackIcon';
 import DeleteConfirmDialog from 'src/components/UI/DeleteConfirmDialog';
 import ScreenHeader from 'src/components/UI/ScreenHeader';
 import ScreenTitle from 'src/components/UI/typography/ScreenTitle';
@@ -31,6 +32,10 @@ const CategoriesScreen = () => {
     setOpen(false);
   };
 
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   // Renders
   const renderCategories = () => {
     return mockCategories.map((category) => (
@@ -41,7 +46,10 @@ const CategoriesScreen = () => {
   return (
     <>
       <ScreenHeader className="flex items-center justify-between">
-        <ScreenTitle title="Categories" />
+        <div className="flex items-center gap-2">
+          <BackIcon onClick={handleGoBack} />
+          <ScreenTitle title="Categories" />
+        </div>
         <NavLink to="/categories/add">
           <Button inline>Add category</Button>
         </NavLink>

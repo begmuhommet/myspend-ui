@@ -20,7 +20,7 @@ const TransactionItem: FC<TProps> = (props) => {
           <div className="flex items-center justify-between gap-3">
             {categoryIcons[transaction.category as keyof typeof categoryIcons]}
             <div className="flex flex-col">
-              <h2 className="text-md font-light">{transaction.label}</h2>
+              <h2 className="text-md font-medium">{transaction.label}</h2>
               <h1 className="text-xs font-medium text-gray-500">{transaction.category}</h1>
             </div>
           </div>

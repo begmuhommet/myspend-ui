@@ -1,13 +1,13 @@
 import { Icon, Tabbar, TabbarLink } from 'konsta/react';
-import { IoAddCircleOutline, IoApps, IoHome, IoPeople, IoStatsChart } from 'react-icons/io5';
+import { IoAddCircleOutline, IoHome, IoPeople, IoSettingsSharp, IoStatsChart } from 'react-icons/io5';
 import { useLocation, useNavigate } from 'react-router';
 
 const navigation = [
   { label: 'Home', icon: <IoHome className="w-5 h-5" />, link: '/' },
   { label: 'Groups', icon: <IoPeople className="w-6 h-6" />, link: '/groups' },
   { label: 'Transactions', icon: <IoAddCircleOutline className="w-7 h-7" />, link: '/transactions' },
-  { label: 'Categories', icon: <IoApps className="w-5 h-5" />, link: '/categories' },
   { label: 'Reports', icon: <IoStatsChart className="w-5 h-5" />, link: '/reports' },
+  { label: 'Settings', icon: <IoSettingsSharp className="w-5 h-5" />, link: '/settings' },
 ];
 
 const Navbar = () => {

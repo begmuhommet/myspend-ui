@@ -12,7 +12,7 @@ function MyApp() {
   return (
     <BrowserRouter>
       <App safeAreas theme={options.platform} dark={!!options.theme}>
-        <Page>
+        <Page className="pt-2 pb-18">
           <AppRouter />
           <Navbar />
         </Page>
