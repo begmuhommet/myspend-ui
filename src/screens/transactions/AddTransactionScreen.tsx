@@ -27,7 +27,7 @@ const AddTransactionScreen = () => {
 
   return (
     <Page back={false}>
-      <List>
+      <List style={{ background: 'var(--tgui--secondary_bg_color)' }}>
         <SegmentedControl className="mb-4">
           <SegmentedControlItem onClick={() => setActiveSegmented(1)} selected={activeSegmented === 1}>
             Spend

@@ -1,6 +1,7 @@
 import {
   $debug,
   backButton,
+  closingBehavior,
   initData,
   init as initSDK,
   miniApp,
@@ -24,6 +25,16 @@ export function init(debug: boolean): void {
   // Check if all required components are supported.
   if (!backButton.isSupported() || !miniApp.isSupported()) {
     throw new Error('ERR_NOT_SUPPORTED');
+  }
+
+  if (closingBehavior.enableConfirmation.isAvailable()) {
+    closingBehavior.enableConfirmation();
+    closingBehavior.isConfirmationEnabled(); // true
+  }
+
+  if (closingBehavior.mount.isAvailable()) {
+    closingBehavior.mount();
+    closingBehavior.isMounted(); // true
   }
 
   // Mount all components used in the project.
