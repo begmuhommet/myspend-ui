@@ -1,7 +1,7 @@
-import { List, ListItem } from 'konsta/react';
+import { Cell } from '@telegram-apps/telegram-ui';
 import { IoApps, IoCalculatorSharp, IoGlobeOutline } from 'react-icons/io5';
 import { useNavigate } from 'react-router';
-import ScreenHeader from 'src/components/UI/ScreenHeader';
+import Page from 'src/components/Page';
 import ScreenTitle from 'src/components/UI/typography/ScreenTitle';
 
 const SettingsScreen = () => {
@@ -23,17 +23,31 @@ const SettingsScreen = () => {
 
   // Renders
   return (
-    <>
-      <ScreenHeader>
-        <ScreenTitle title="Settings" />
-      </ScreenHeader>
+    <Page>
+      <ScreenTitle title="Settings" />
 
-      <List>
-        <ListItem title="Categories" media={<IoApps />} onClick={handleOpenCategories} />
-        <ListItem title="Budgets" media={<IoCalculatorSharp />} onClick={handleOpenBudgets} />
-        <ListItem title="Currencies" media={<IoGlobeOutline />} onClick={handleOpenCurrencies} />
-      </List>
-    </>
+      <Cell
+        before={<IoApps />}
+        onClick={handleOpenCategories}
+        style={{ borderBottom: `1px solid var(--tgui--secondary_bg_color)` }}
+      >
+        Categories
+      </Cell>
+      <Cell
+        before={<IoCalculatorSharp />}
+        onClick={handleOpenBudgets}
+        style={{ borderBottom: `1px solid var(--tgui--secondary_bg_color)` }}
+      >
+        Budgets
+      </Cell>
+      <Cell
+        before={<IoGlobeOutline />}
+        onClick={handleOpenCurrencies}
+        style={{ borderBottom: `1px solid var(--tgui--secondary_bg_color)` }}
+      >
+        Currencies
+      </Cell>
+    </Page>
   );
 };
 

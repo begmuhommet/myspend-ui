@@ -35,18 +35,18 @@ const AddTransactionScreen = () => {
         </SegmentedControl.Item>
       </SegmentedControl>
 
-      <Input header="Amount" type="number" accept="number" placeholder="300" />
-      <Input header="Label" type="text" placeholder="Car wash" />
-      <Select header="Group" value="Personal" onChange={() => {}}>
+      <Input header="Amount" type="number" accept="number" placeholder="300" style={{ background: 'transparent' }} />
+      <Input header="Label" type="text" placeholder="Car wash" style={{ background: 'transparent' }} />
+      <Select header="Group" value="Personal" onChange={() => {}} style={{ background: 'transparent' }}>
         {renderGroups()}
       </Select>
-      <Select header="Category" value="Car" onChange={() => {}}>
+      <Select header="Category" value="Car" onChange={() => {}} style={{ background: 'transparent' }}>
         {renderCategories()}
       </Select>
 
       <div className="py-0.5" />
 
-      <Button mode="filled" size="m" className="w-full">
+      <Button mode="filled" size="m" className="w-full" style={{ width: '100%' }}>
         Add Transaction
       </Button>
     </Page>
