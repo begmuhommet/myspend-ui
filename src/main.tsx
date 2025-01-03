@@ -5,8 +5,8 @@ import App from './App.tsx';
 import EnvUnsupported from './components/errors/EnvUnsupported.tsx';
 import { ErrorBoundary } from './components/errors/ErrorBoundary.tsx';
 import ErrorBoundaryError from './components/errors/ErrorBoundaryError.tsx';
-import { init } from './init.ts';
-import './mocks/mock-env.ts';
+import init from './init.ts';
+// import './mocks/mock-env.ts';
 
 const root = createRoot(document.getElementById('root')!);
 

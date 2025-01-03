@@ -9,7 +9,7 @@ import {
   viewport,
 } from '@telegram-apps/sdk-react';
 
-export function init(debug: boolean): void {
+const init = (debug: boolean) => {
   // Set @telegram-apps/sdk-react debug mode.
   $debug.set(debug);
 
@@ -18,9 +18,9 @@ export function init(debug: boolean): void {
   initSDK();
 
   // Add Eruda if needed.
-  if (debug) {
-    import('eruda').then((lib) => lib.default.init()).catch(console.error);
-  }
+  // if (debug) {
+  //   import('eruda').then((lib) => lib.default.init()).catch(console.error);
+  // }
 
   // Check if all required components are supported.
   if (!backButton.isSupported() || !miniApp.isSupported()) {
@@ -42,16 +42,23 @@ export function init(debug: boolean): void {
   miniApp.mount();
   themeParams.mount();
   initData.restore();
-  void viewport
-    .mount()
-    .catch((e) => {
-      console.error('Something went wrong mounting the viewport', e);
-    })
-    .then(() => {
-      viewport.bindCssVars();
-    });
+
+  try {
+    viewport
+      .mount()
+      .catch((e) => {
+        console.error('Something went wrong mounting the viewport', e);
+      })
+      .then(() => {
+        viewport.bindCssVars();
+      });
+  } catch (error) {
+    console.error(error);
+  }
 
   // Define components-related CSS variables.
   miniApp.bindCssVars();
   themeParams.bindCssVars();
-}
+};
+
+export default init;
