@@ -47,7 +47,7 @@ const CategoriesScreen = () => {
         </NavLink>
       </div>
 
-      <div className="flex flex-col gap-2">{renderCategories()}</div>
+      <div className="flex flex-col gap-2 py-2">{renderCategories()}</div>
 
       <DeleteConfirmDialog
         title="Delete category"

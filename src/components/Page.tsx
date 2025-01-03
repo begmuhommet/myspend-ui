@@ -23,7 +23,7 @@ const Page: FC<TProps> = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [back]);
 
-  return <List className="bg-primary min-h-screen px-3 pt-4 pb-12">{children}</List>;
+  return <List className="bg-primary min-h-screen px-3 pt-4 pb-16">{children}</List>;
 };
 
 export default Page;

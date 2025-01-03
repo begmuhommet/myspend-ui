@@ -5,6 +5,7 @@ import {
   initData,
   init as initSDK,
   miniApp,
+  settingsButton,
   themeParams,
   viewport,
 } from '@telegram-apps/sdk-react';
@@ -42,6 +43,7 @@ const init = (debug: boolean) => {
   miniApp.mount();
   themeParams.mount();
   initData.restore();
+  settingsButton.mount();
 
   try {
     viewport

@@ -1,46 +1,60 @@
-import { Modal, Placeholder } from '@telegram-apps/telegram-ui';
+import { Button, Modal } from '@telegram-apps/telegram-ui';
 import { FC } from 'react';
+import { IoCreateOutline, IoPeopleOutline, IoTrashOutline } from 'react-icons/io5';
 
 type TProps = {
-  open: boolean;
-  onClose: () => void;
+  title?: string;
   onEdit?: () => void;
   onDelete?: () => void;
   onMembers?: () => void;
+  open: boolean;
+  onClose: () => void;
 };
 
 const GroupActions: FC<TProps> = (props) => {
-  const { open, onClose } = props;
+  const { title, onEdit, onDelete, onMembers, onClose, open } = props;
 
+  // Handlers
+  const handleOpenChange = (open: boolean) => {
+    if (open) return;
+    onClose();
+  };
+
+  // Renders
   return (
-    <Modal open={open} onOpenChange={onClose}>
-      <Placeholder description="Description" header="Title">
-        <img
-          alt="Telegram sticker"
-          src="https://xelene.me/telegram.gif"
-          style={{
-            display: 'block',
-            height: '144px',
-            width: '144px',
-          }}
-        />
-      </Placeholder>
-
-      {/* <ActionsGroup>
-        <ActionsButton onClick={onMembers} className="flex items-center gap-2">
-          <TbUsers className="w-4 h-4" />
+    <Modal header={<Modal.Header>{title}</Modal.Header>} title={title} open={open} onOpenChange={handleOpenChange}>
+      <div className="flex flex-col gap-2 px-4" style={{ height: 280 }}>
+        <Button
+          before={<IoPeopleOutline className="w-5 h-5" />}
+          mode="gray"
+          size="m"
+          className="w-full"
+          onClick={onMembers}
+        >
           Members
-        </ActionsButton>
-        <ActionsButton onClick={onEdit} className="flex items-center gap-2">
-          <TbEdit className="w-4 h-4" />
+        </Button>
+        <Button
+          before={<IoCreateOutline className="w-5 h-5" />}
+          mode="gray"
+          size="m"
+          className="w-full"
+          onClick={onEdit}
+        >
           Edit
-        </ActionsButton>
-        <ActionsButton onClick={onDelete} className="flex items-center gap-2 text-red-500">
-          <TbTrash className="w-4 h-4" />
+        </Button>
+        <Button
+          before={<IoTrashOutline className="w-5 h-5" />}
+          mode="gray"
+          size="m"
+          className="w-full text-red-500"
+          onClick={onDelete}
+        >
           Delete
-        </ActionsButton>
-        <ActionsButton onClick={onClose}>Cancel</ActionsButton>
-      </ActionsGroup> */}
+        </Button>
+        <Button mode="gray" size="m" className="w-full" onClick={onClose}>
+          Cancel
+        </Button>
+      </div>
     </Modal>
   );
 };

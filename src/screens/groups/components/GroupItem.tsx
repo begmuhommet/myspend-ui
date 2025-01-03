@@ -28,7 +28,7 @@ const GroupItem = (props: TProps) => {
         </div>
         <div className="flex flex-col gap-1">
           <div className="flex justify-between">
-            <Caption weight="3" className="text-red-500 opacity-10">
+            <Caption weight="3" className="text-red-500 opacity-90">
               Spent: {group.spent}
             </Caption>
             <Caption weight="3" className="text-hint">

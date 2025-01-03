@@ -16,7 +16,7 @@ const TransactionsScreen = () => {
   const navigate = useNavigate();
   const { groupId } = useParams();
 
-  const handleClose = (key: keyof typeof open, value: boolean) => {
+  const handleOpen = (key: keyof typeof open, value: boolean) => {
     setOpen({ ...open, [key]: value });
   };
 
@@ -41,28 +41,34 @@ const TransactionsScreen = () => {
     return mockTransactions.map((transaction) => <TransactionItem key={transaction.label} transaction={transaction} />);
   };
 
+  const renderOpenButton = () => {
+    return (
+      <IconButton mode="plain" size="m" className="text-theme" onClick={() => handleOpen('action', true)}>
+        <IoSettingsOutline className="w-5 h-5" />
+      </IconButton>
+    );
+  };
+
   return (
     <Page>
       <div className="flex items-center justify-between">
         <ScreenTitle title="Group Transactions" />
-        <IconButton onClick={() => handleClose('action', true)}>
-          <IoSettingsOutline className="w-5 h-5" />
-        </IconButton>
+        {renderOpenButton()}
+        <GroupActions
+          open={open.action}
+          title="Group Actions"
+          onEdit={handleEdit}
+          onDelete={handleOpenDelete}
+          onMembers={handleMembers}
+          onClose={() => handleOpen('action', false)}
+        />
       </div>
 
       <div className="flex flex-col gap-2">{renderTransactions()}</div>
 
-      <GroupActions
-        open={open.action}
-        onClose={() => handleClose('action', false)}
-        onEdit={handleEdit}
-        onDelete={handleOpenDelete}
-        onMembers={handleMembers}
-      />
-
       <DeleteConfirmDialog
         open={open.delete}
-        onClose={() => handleClose('delete', false)}
+        onClose={() => handleOpen('delete', false)}
         onConfirm={handleDelete}
         title="Delete Group"
         description="Are you sure you want to delete this group?"

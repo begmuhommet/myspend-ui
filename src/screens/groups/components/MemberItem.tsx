@@ -1,7 +1,6 @@
-import { IconButton, Text } from '@telegram-apps/telegram-ui';
+import { Caption, IconButton, Text } from '@telegram-apps/telegram-ui';
 import { FC } from 'react';
-import { IoPersonOutline } from 'react-icons/io5';
-import { TbTrash } from 'react-icons/tb';
+import { IoPersonOutline, IoTrashOutline } from 'react-icons/io5';
 import AppCard from 'src/components/UI/AppCard';
 
 type TProps = {
@@ -14,22 +13,20 @@ const MemberItem: FC<TProps> = (props) => {
   const { name, telegram_username, onDelete } = props;
 
   return (
-    <AppCard>
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <IoPersonOutline className="w-5 h-5" />
-          <div className="flex flex-col">
-            <Text weight="1">{name}</Text>
-            <Text weight="3" className="text-hint">
-              {telegram_username}
-            </Text>
-          </div>
+    <AppCard className="flex items-center justify-between">
+      <div className="flex items-center gap-2">
+        <IoPersonOutline className="w-6 h-6" />
+        <div className="flex flex-col">
+          <Text weight="3">{name}</Text>
+          <Caption weight="3" className="text-hint">
+            {telegram_username}
+          </Caption>
         </div>
-
-        <IconButton onClick={onDelete}>
-          <TbTrash className="w-5 h-5 text-error-500" />
-        </IconButton>
       </div>
+
+      <IconButton onClick={onDelete} size="s" mode="plain">
+        <IoTrashOutline className="w-5 h-5 text-red-500" />
+      </IconButton>
     </AppCard>
   );
 };

@@ -1,4 +1,4 @@
-import { Cell } from '@telegram-apps/telegram-ui';
+import { Cell, Divider } from '@telegram-apps/telegram-ui';
 import { IoApps, IoCalculatorSharp, IoGlobeOutline } from 'react-icons/io5';
 import { useNavigate } from 'react-router';
 import Page from 'src/components/Page';
@@ -26,25 +26,15 @@ const SettingsScreen = () => {
     <Page>
       <ScreenTitle title="Settings" />
 
-      <Cell
-        before={<IoApps />}
-        onClick={handleOpenCategories}
-        style={{ borderBottom: `1px solid var(--tgui--secondary_bg_color)` }}
-      >
+      <Cell before={<IoApps />} onClick={handleOpenCategories}>
         Categories
       </Cell>
-      <Cell
-        before={<IoCalculatorSharp />}
-        onClick={handleOpenBudgets}
-        style={{ borderBottom: `1px solid var(--tgui--secondary_bg_color)` }}
-      >
+      <Divider />
+      <Cell before={<IoCalculatorSharp />} onClick={handleOpenBudgets}>
         Budgets
       </Cell>
-      <Cell
-        before={<IoGlobeOutline />}
-        onClick={handleOpenCurrencies}
-        style={{ borderBottom: `1px solid var(--tgui--secondary_bg_color)` }}
-      >
+      <Divider />
+      <Cell before={<IoGlobeOutline />} onClick={handleOpenCurrencies}>
         Currencies
       </Cell>
     </Page>

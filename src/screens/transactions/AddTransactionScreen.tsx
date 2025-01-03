@@ -10,7 +10,7 @@ const AddTransactionScreen = () => {
   // Renders
   const renderGroups = () => {
     return mockGroups.map((item) => (
-      <option value={item.id}>
+      <option key={item.id} value={item.id}>
         {item.icon} {item.name}
       </option>
     ));
@@ -26,7 +26,7 @@ const AddTransactionScreen = () => {
 
   return (
     <Page back={false}>
-      <SegmentedControl className="mb-4">
+      <SegmentedControl className="mb-4 bg-secondary">
         <SegmentedControl.Item onClick={() => setActiveSegmented(1)} selected={activeSegmented === 1}>
           Spend
         </SegmentedControl.Item>
@@ -35,12 +35,12 @@ const AddTransactionScreen = () => {
         </SegmentedControl.Item>
       </SegmentedControl>
 
-      <Input header="Amount" type="number" accept="number" placeholder="300" style={{ background: 'transparent' }} />
-      <Input header="Label" type="text" placeholder="Car wash" style={{ background: 'transparent' }} />
-      <Select header="Group" value="Personal" onChange={() => {}} style={{ background: 'transparent' }}>
+      <Input header="Amount" type="number" accept="number" placeholder="300" className="bg-transparent" />
+      <Input header="Label" type="text" placeholder="Car wash" className="bg-transparent" />
+      <Select header="Group" value="Personal" onChange={() => {}} className="bg-transparent">
         {renderGroups()}
       </Select>
-      <Select header="Category" value="Car" onChange={() => {}} style={{ background: 'transparent' }}>
+      <Select header="Category" value="Car" onChange={() => {}} className="bg-transparent">
         {renderCategories()}
       </Select>
 

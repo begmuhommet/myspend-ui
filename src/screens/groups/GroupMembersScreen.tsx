@@ -45,7 +45,7 @@ const GroupMembersScreen = () => {
         </NavLink>
       </div>
 
-      <div className="flex flex-col gap-3 m-4">{renderMembers()}</div>
+      <div className="flex flex-col gap-3 py-2">{renderMembers()}</div>
 
       <DeleteConfirmDialog
         title="Delete member"

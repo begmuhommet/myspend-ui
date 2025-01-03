@@ -1,4 +1,5 @@
 import { Tabbar } from '@telegram-apps/telegram-ui';
+import clsx from 'clsx';
 import { IoAddCircleOutline, IoHome, IoPeople, IoSettingsSharp, IoStatsChart } from 'react-icons/io5';
 import { useLocation, useNavigate } from 'react-router';
 
@@ -35,13 +36,18 @@ const Navbar = () => {
   // Renders
   const renderNavigation = () => {
     return navigation.map((nav) => (
-      <Tabbar.Item key={nav.label} onClick={handleNavigate(nav.link)} selected={isActive(nav.link)}>
+      <Tabbar.Item
+        key={nav.label}
+        onClick={handleNavigate(nav.link)}
+        selected={isActive(nav.link)}
+        className={clsx('text-theme opacity-80', isActive(nav.link) && 'opacity-100')}
+      >
         {nav.icon}
       </Tabbar.Item>
     ));
   };
 
-  return <Tabbar className="z-50">{renderNavigation()}</Tabbar>;
+  return <Tabbar className="z-50 bg-secondary">{renderNavigation()}</Tabbar>;
 };
 
 export default Navbar;
