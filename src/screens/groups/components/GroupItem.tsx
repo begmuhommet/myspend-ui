@@ -1,4 +1,4 @@
-import { Card, Icon, Progressbar } from 'konsta/react';
+import { Caption, Card, Headline, Progress, Text } from '@telegram-apps/telegram-ui';
 import { IoPeopleOutline } from 'react-icons/io5';
 import { NavLink } from 'react-router';
 
@@ -15,21 +15,25 @@ const GroupItem = (props: TProps) => {
   // Renders
   return (
     <NavLink to={`/groups/${group.name}/transactions`}>
-      <Card className="my-0">
+      <Card className="w-full p-4 box-border">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-2">
-            <Icon ios={<IoPeopleOutline className="w-4 h-4" />} material={<IoPeopleOutline className="w-4 h-4" />} />
-            <h2 className="text-md font-extrabold">{group.name}</h2>
+            <IoPeopleOutline className="w-5 h-5" />
+            <Headline weight="3">{group.name}</Headline>
           </div>
-          <h3 className="text-md font-bold text-green-500">{group.balance}</h3>
+          <Text weight="1" className="text-green-500">
+            {group.balance}
+          </Text>
         </div>
         <div className="flex flex-col gap-1">
           <div className="flex justify-between">
-            <span className="text-xs font-light text-gray-400">Spent: {group.spent}</span>
-            <span className="text-xs font-light text-gray-400">Budget: {group.budget}</span>
+            <Caption weight="3" className="text-red-500">
+              Spent: {group.spent}
+            </Caption>
+            <Caption weight="3">Budget: {group.budget}</Caption>
           </div>
           <div className="w-full">
-            <Progressbar progress={spentProgress} />
+            <Progress value={spentProgress * 100} />
           </div>
         </div>
       </Card>

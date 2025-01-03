@@ -10,7 +10,7 @@ const SectionTitle: FC<TProps> = (props) => {
   const { title } = props;
 
   return (
-    <Headline weight="3" plain>
+    <Headline weight="3" className="mb-1">
       {title}
     </Headline>
   );

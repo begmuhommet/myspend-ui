@@ -1,15 +1,18 @@
-import clsx from 'clsx';
+import { Title } from '@telegram-apps/telegram-ui';
 import { FC } from 'react';
 
 type TProps = {
   title: string;
-  className?: string;
 };
 
 const ScreenTitle: FC<TProps> = (props) => {
-  const { title, className } = props;
+  const { title } = props;
 
-  return <h1 className={clsx('text-xl font-light', className)}>{title}</h1>;
+  return (
+    <Title weight="2" plain>
+      {title}
+    </Title>
+  );
 };
 
 export default ScreenTitle;

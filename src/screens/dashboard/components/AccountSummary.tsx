@@ -5,19 +5,17 @@ import { IoArrowDown, IoArrowUp } from 'react-icons/io5';
 const AccountSummary = () => {
   return (
     <>
-      <Card className="relative w-full">
-        <Cell className="flex items-center justify-between">
-          <div className="flex flex-col gap-2">
-            <Headline weight="3" plain>
-              Total Balance
-            </Headline>
-            <LargeTitle weight="1" plain>
-              1000
-            </LargeTitle>
-          </div>
+      <Card className="relative w-full flex items-center justify-between box-border p-4 mb-2">
+        <div className="flex flex-col gap-2">
+          <Headline weight="3" plain>
+            Total Balance
+          </Headline>
+          <LargeTitle weight="1" plain>
+            1000
+          </LargeTitle>
+        </div>
 
-          <GiTwoCoins className="w-36 h-36 text-gray-400 absolute right-0 top-auto bottom-auto" />
-        </Cell>
+        <GiTwoCoins className="w-36 h-36 text-gray-400 absolute right-0 top-auto bottom-auto" />
       </Card>
 
       <div className="flex items-center justify-between gap-2">
