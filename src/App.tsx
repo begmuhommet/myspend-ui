@@ -4,7 +4,7 @@ import '@telegram-apps/telegram-ui/dist/styles.css';
 import { BrowserRouter } from 'react-router';
 import AppTabbar from 'src/components/tabbar';
 import AppRouter from 'src/router/AppRouter';
-// import './styles/index.css';
+import './styles/index.css';
 
 const App = () => {
   const lp = useLaunchParams();
