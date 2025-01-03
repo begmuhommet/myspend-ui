@@ -4,11 +4,11 @@ import { IoAddCircleOutline, IoHome, IoPeople, IoSettingsSharp, IoStatsChart } f
 import { useLocation, useNavigate } from 'react-router';
 
 const navigation = [
-  { label: 'Home', icon: <IoHome style={{ width: 22, height: 22 }} />, link: '/' },
-  { label: 'Groups', icon: <IoPeople style={{ width: 22, height: 22 }} />, link: '/groups' },
-  { label: 'Transactions', icon: <IoAddCircleOutline style={{ width: 25, height: 25 }} />, link: '/transactions' },
-  { label: 'Reports', icon: <IoStatsChart style={{ width: 22, height: 22 }} />, link: '/reports' },
-  { label: 'Settings', icon: <IoSettingsSharp style={{ width: 22, height: 22 }} />, link: '/settings' },
+  { label: 'Home', icon: <IoHome className="w-5 h-5 my-1" />, link: '/' },
+  { label: 'Groups', icon: <IoPeople className="w-5 h-5 my-1" />, link: '/groups' },
+  { label: 'Transactions', icon: <IoAddCircleOutline className="w-7 h-7 my-1" />, link: '/transactions' },
+  { label: 'Reports', icon: <IoStatsChart className="w-5 h-5 my-1" />, link: '/reports' },
+  { label: 'Settings', icon: <IoSettingsSharp className="w-5 h-5 my-1" />, link: '/settings' },
 ];
 
 const Navbar = () => {
@@ -40,7 +40,7 @@ const Navbar = () => {
         key={nav.label}
         onClick={handleNavigate(nav.link)}
         selected={isActive(nav.link)}
-        className={clsx('text-theme opacity-80', isActive(nav.link) && 'opacity-100')}
+        className={clsx('text-theme opacity-80 [&:div]:p-3', isActive(nav.link) && 'opacity-100')}
       >
         {nav.icon}
       </Tabbar.Item>
