@@ -24,6 +24,7 @@ const AppRouter = () => {
   return (
     <Routes>
       <Route index element={<DashboardScreen />} />
+
       <Route path="/groups">
         <Route index element={<GroupsScreen />} />
         <Route path=":groupId/transactions" element={<TransactionsScreen />} />
@@ -32,22 +33,27 @@ const AppRouter = () => {
         <Route path=":groupId/members/add" element={<AddGroupMemberScreen />} />
         <Route path="add" element={<AddGroupScreen />} />
       </Route>
+
       <Route path="/transactions">
         <Route index element={<AddTransactionScreen />} />
         <Route path=":transactionId/edit" element={<EditTransactionScreen />} />
       </Route>
+
       <Route path="/settings">
         <Route index element={<SettingsScreen />} />
+
         <Route path="categories">
           <Route index element={<CategoriesScreen />} />
           <Route path="add" element={<AddCategoryScreen />} />
           <Route path=":categoryId/edit" element={<EditCategoryScreen />} />
         </Route>
+
         <Route path="budgets">
           <Route index element={<BudgetsScreen />} />
           <Route path="add" element={<AddBudgetScreen />} />
           <Route path=":budgetId/edit" element={<EditBudgetScreen />} />
         </Route>
+
         <Route path="currencies">
           <Route index element={<CurrenciesScreen />} />
           <Route path="add" element={<AddCurrencyScreen />} />

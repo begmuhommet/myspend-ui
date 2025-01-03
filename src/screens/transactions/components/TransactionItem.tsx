@@ -1,5 +1,5 @@
+import { Card } from '@telegram-apps/telegram-ui';
 import clsx from 'clsx';
-import { Card } from 'konsta/react';
 import { FC } from 'react';
 import { NavLink } from 'react-router';
 import { categoryIcons } from 'src/mocks/mock-categories';
@@ -15,8 +15,8 @@ const TransactionItem: FC<TProps> = (props) => {
   // Renders
   return (
     <NavLink to={`/transactions/${transaction.id}/edit`}>
-      <Card className="!m-0">
-        <div className="flex items-center justify-between">
+      <Card className="w-full">
+        <div className="w-full flex items-center justify-between p-4">
           <div className="flex items-center justify-between gap-3">
             {categoryIcons[transaction.category as keyof typeof categoryIcons]}
             <div className="flex flex-col">

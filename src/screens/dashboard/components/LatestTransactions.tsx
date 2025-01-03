@@ -10,11 +10,8 @@ const LatestTransactions = () => {
 
   return (
     <>
-      <div className="m-4">
-        <SectionTitle title="Latest transactions" />
-      </div>
-
-      <div className="flex flex-col gap-3 m-4">{renderLatestTransactions()}</div>
+      <SectionTitle title="Latest transactions" />
+      <div className="flex flex-col gap-2">{renderLatestTransactions()}</div>
     </>
   );
 };

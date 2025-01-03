@@ -1,24 +1,26 @@
-import { App, Page } from 'konsta/react';
-import { useState } from 'react';
+import { miniApp, useLaunchParams, useSignal } from '@telegram-apps/sdk-react';
+import { AppRoot } from '@telegram-apps/telegram-ui';
+import '@telegram-apps/telegram-ui/dist/styles.css';
 import { BrowserRouter } from 'react-router';
-import Navbar from 'src/components/navbar';
+import AppTabbar from 'src/components/tabbar';
 import AppRouter from 'src/router/AppRouter';
+import './styles/index.css';
 
-function MyApp() {
-  // States
-  const [options] = useState({ platform: 'ios' as const, theme: 'dark' });
+const App = () => {
+  const lp = useLaunchParams();
+  const isDark = useSignal(miniApp.isDark);
+  const theme = isDark ? 'dark' : 'light';
+  const platform = ['macos', 'ios'].includes(lp.platform) ? 'ios' : 'base';
 
   // Renders
   return (
-    <BrowserRouter>
-      <App safeAreas theme={options.platform} dark={!!options.theme}>
-        <Page className="pt-2 pb-18">
-          <AppRouter />
-          <Navbar />
-        </Page>
-      </App>
-    </BrowserRouter>
+    <AppRoot appearance={theme} platform={platform}>
+      <BrowserRouter>
+        <AppRouter />
+        <AppTabbar />
+      </BrowserRouter>
+    </AppRoot>
   );
-}
+};
 
-export default MyApp;
+export default App;

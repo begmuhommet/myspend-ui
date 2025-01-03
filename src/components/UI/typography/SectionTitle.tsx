@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { Headline } from '@telegram-apps/telegram-ui';
 import { FC } from 'react';
 
 type TProps = {
@@ -7,9 +7,9 @@ type TProps = {
 };
 
 const SectionTitle: FC<TProps> = (props) => {
-  const { title, className } = props;
+  const { title } = props;
 
-  return <h1 className={clsx('text-lg font-light', className)}>{title}</h1>;
+  return <Headline weight="3">{title}</Headline>;
 };
 
 export default SectionTitle;

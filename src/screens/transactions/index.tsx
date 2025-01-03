@@ -56,7 +56,7 @@ const TransactionsScreen = () => {
         <IoSettingsOutline className="w-5 h-5" onClick={() => handleClose('action', true)} />
       </ScreenHeader>
 
-      <Block className="flex flex-col gap-2">{renderTransactions()}</Block>
+      <Block className="flex flex-col">{renderTransactions()}</Block>
 
       <GroupActions
         open={open.action}

@@ -1,4 +1,4 @@
-import { Icon, Tabbar, TabbarLink } from 'konsta/react';
+import { Tabbar } from '@telegram-apps/telegram-ui';
 import { IoAddCircleOutline, IoHome, IoPeople, IoSettingsSharp, IoStatsChart } from 'react-icons/io5';
 import { useLocation, useNavigate } from 'react-router';
 
@@ -35,20 +35,13 @@ const Navbar = () => {
   // Renders
   const renderNavigation = () => {
     return navigation.map((nav) => (
-      <TabbarLink
-        key={nav.label}
-        active={isActive(nav.link)}
-        onClick={handleNavigate(nav.link)}
-        icon={<Icon ios={nav.icon} material={nav.icon} />}
-      />
+      <Tabbar.Item key={nav.label} onClick={handleNavigate(nav.link)} selected={isActive(nav.link)}>
+        {nav.icon}
+      </Tabbar.Item>
     ));
   };
 
-  return (
-    <Tabbar labels={false} icons className="left-0 bottom-0 fixed">
-      {renderNavigation()}
-    </Tabbar>
-  );
+  return <Tabbar>{renderNavigation()}</Tabbar>;
 };
 
 export default Navbar;
