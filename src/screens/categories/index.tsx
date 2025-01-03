@@ -1,9 +1,8 @@
-import { Button } from 'konsta/react';
+import { Button } from '@telegram-apps/telegram-ui';
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router';
-import BackIcon from 'src/components/UI/BackIcon';
+import Page from 'src/components/Page';
 import DeleteConfirmDialog from 'src/components/UI/DeleteConfirmDialog';
-import ScreenHeader from 'src/components/UI/ScreenHeader';
 import ScreenTitle from 'src/components/UI/typography/ScreenTitle';
 import { mockCategories } from 'src/mocks/mock-categories';
 import CategoryItem from './components/CategoryItem';
@@ -32,10 +31,6 @@ const CategoriesScreen = () => {
     setOpen(false);
   };
 
-  const handleGoBack = () => {
-    navigate(-1);
-  };
-
   // Renders
   const renderCategories = () => {
     return mockCategories.map((category) => (
@@ -44,18 +39,15 @@ const CategoriesScreen = () => {
   };
 
   return (
-    <>
-      <ScreenHeader className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <BackIcon onClick={handleGoBack} />
-          <ScreenTitle title="Categories" />
-        </div>
+    <Page>
+      <div className="flex items-center justify-between">
+        <ScreenTitle title="Categories" />
         <NavLink to="/settings/categories/add">
-          <Button inline>Add category</Button>
+          <Button size="s">Add category</Button>
         </NavLink>
-      </ScreenHeader>
+      </div>
 
-      <div className="flex flex-col gap-2 m-4">{renderCategories()}</div>
+      <div className="flex flex-col gap-2">{renderCategories()}</div>
 
       <DeleteConfirmDialog
         title="Delete category"
@@ -64,7 +56,7 @@ const CategoriesScreen = () => {
         onClose={handleCloseDelete}
         onConfirm={handleDelete}
       />
-    </>
+    </Page>
   );
 };
 

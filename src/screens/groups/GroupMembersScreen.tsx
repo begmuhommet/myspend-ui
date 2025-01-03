@@ -1,9 +1,8 @@
-import { Button } from 'konsta/react';
+import { Button } from '@telegram-apps/telegram-ui';
 import { useState } from 'react';
-import { NavLink, useNavigate, useParams } from 'react-router';
-import BackIcon from 'src/components/UI/BackIcon';
+import { NavLink, useParams } from 'react-router';
+import Page from 'src/components/Page';
 import DeleteConfirmDialog from 'src/components/UI/DeleteConfirmDialog';
-import ScreenHeader from 'src/components/UI/ScreenHeader';
 import ScreenTitle from 'src/components/UI/typography/ScreenTitle';
 import { mockMembers } from 'src/mocks/mock-members';
 import MemberItem from './components/MemberItem';
@@ -13,13 +12,7 @@ const GroupMembersScreen = () => {
   const [openDelete, setOpenDelete] = useState(false);
 
   // Hooks
-  const navigate = useNavigate();
   const { groupId } = useParams();
-
-  // Handlers
-  const handleGoBack = () => {
-    navigate(-1);
-  };
 
   const handleOpenDelete = () => {
     setOpenDelete(true);
@@ -43,17 +36,14 @@ const GroupMembersScreen = () => {
   };
 
   return (
-    <>
-      <ScreenHeader className="flex items-center gap-2 justify-between">
-        <div className="flex items-center gap-3">
-          <BackIcon onClick={handleGoBack} />
-          <ScreenTitle title="Group members" />
-        </div>
+    <Page>
+      <div className="flex items-center gap-2 justify-between">
+        <ScreenTitle title="Group members" />
 
         <NavLink to={`/groups/${groupId}/members/add`}>
-          <Button inline>Add member</Button>
+          <Button size="s">Add member</Button>
         </NavLink>
-      </ScreenHeader>
+      </div>
 
       <div className="flex flex-col gap-3 m-4">{renderMembers()}</div>
 
@@ -64,7 +54,7 @@ const GroupMembersScreen = () => {
         onClose={() => setOpenDelete(false)}
         onConfirm={handleDeleteMember}
       />
-    </>
+    </Page>
   );
 };
 

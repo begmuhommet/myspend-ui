@@ -1,9 +1,9 @@
-import { Block } from 'konsta/react';
+import { IconButton } from '@telegram-apps/telegram-ui';
 import { useState } from 'react';
-import { IoChevronBack, IoSettingsOutline } from 'react-icons/io5';
+import { IoSettingsOutline } from 'react-icons/io5';
 import { useNavigate, useParams } from 'react-router';
+import Page from 'src/components/Page';
 import DeleteConfirmDialog from 'src/components/UI/DeleteConfirmDialog';
-import ScreenHeader from 'src/components/UI/ScreenHeader';
 import ScreenTitle from 'src/components/UI/typography/ScreenTitle';
 import { mockTransactions } from 'src/mocks/mock-transactions';
 import GroupActions from './components/GroupActions';
@@ -15,11 +15,6 @@ const TransactionsScreen = () => {
   // Hooks
   const navigate = useNavigate();
   const { groupId } = useParams();
-
-  // Handlers
-  const handleGoBack = () => {
-    navigate('/groups');
-  };
 
   const handleClose = (key: keyof typeof open, value: boolean) => {
     setOpen({ ...open, [key]: value });
@@ -47,16 +42,15 @@ const TransactionsScreen = () => {
   };
 
   return (
-    <>
-      <ScreenHeader className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <IoChevronBack className="w-4 h-4" onClick={handleGoBack} />
-          <ScreenTitle title="Group Transactions" />
-        </div>
-        <IoSettingsOutline className="w-5 h-5" onClick={() => handleClose('action', true)} />
-      </ScreenHeader>
+    <Page>
+      <div className="flex items-center justify-between">
+        <ScreenTitle title="Group Transactions" />
+        <IconButton onClick={() => handleClose('action', true)}>
+          <IoSettingsOutline className="w-5 h-5" />
+        </IconButton>
+      </div>
 
-      <Block className="flex flex-col">{renderTransactions()}</Block>
+      <div className="flex flex-col gap-2">{renderTransactions()}</div>
 
       <GroupActions
         open={open.action}
@@ -73,7 +67,7 @@ const TransactionsScreen = () => {
         title="Delete Group"
         description="Are you sure you want to delete this group?"
       />
-    </>
+    </Page>
   );
 };
 

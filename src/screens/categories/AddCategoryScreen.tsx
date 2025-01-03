@@ -1,38 +1,19 @@
-import { Block, Button, List, ListInput } from 'konsta/react';
-import { useNavigate } from 'react-router';
-import BackIcon from 'src/components/UI/BackIcon';
-import ScreenHeader from 'src/components/UI/ScreenHeader';
+import { Button, Input } from '@telegram-apps/telegram-ui';
+import Page from 'src/components/Page';
 import ScreenTitle from 'src/components/UI/typography/ScreenTitle';
 
 const AddCategoryScreen = () => {
-  // Hooks
-  const navigate = useNavigate();
-
-  // Handlers
-  const handleBack = () => {
-    navigate(-1);
-  };
-
   // Renders
   return (
-    <>
-      <ScreenHeader className="flex items-center gap-3">
-        <BackIcon onClick={handleBack} />
-        <ScreenTitle title="Add category" />
-      </ScreenHeader>
+    <Page>
+      <ScreenTitle title="Add category" />
 
-      <List className="pr-4">
-        <ListInput label="Name" type="text" placeholder="Grocery" />
-        <div className="py-0.5" />
-        <ListInput label="Emoji" type="text" placeholder="🍎" />
-        <div className="py-0.5" />
-        <ListInput label="Budget" type="number" placeholder="3000" />
+      <Input header="Name" type="text" placeholder="Grocery" style={{ background: 'transparent' }} />
+      <Input header="Emoji" type="text" placeholder="🍎" style={{ background: 'transparent' }} />
+      <Input header="Budget" type="number" placeholder="3000" style={{ background: 'transparent' }} />
 
-        <Block className="my-8">
-          <Button>Add category</Button>
-        </Block>
-      </List>
-    </>
+      <Button className="w-full">Add category</Button>
+    </Page>
   );
 };
 

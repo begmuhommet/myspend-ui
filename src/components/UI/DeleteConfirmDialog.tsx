@@ -1,4 +1,3 @@
-import { Dialog, DialogButton } from 'konsta/react';
 import { FC } from 'react';
 
 type TProps = {
@@ -9,23 +8,22 @@ type TProps = {
   description: string;
 };
 
-const DeleteConfirmDialog: FC<TProps> = (props) => {
-  const { open, onClose, onConfirm, title, description } = props;
-
+const DeleteConfirmDialog: FC<TProps> = () => {
   // Renders
-  const renderButtons = () => {
-    return (
-      <>
-        <DialogButton onClick={onClose}>Cancel</DialogButton>
-        <DialogButton strong onClick={onConfirm} className="text-red-500">
-          Delete
-        </DialogButton>
-      </>
-    );
-  };
+  // const renderButtons = () => {
+  //   return (
+  //     <>
+  //       <DialogButton onClick={onClose}>Cancel</DialogButton>
+  //       <DialogButton strong onClick={onConfirm} className="text-red-500">
+  //         Delete
+  //       </DialogButton>
+  //     </>
+  //   );
+  // };
 
   return (
-    <Dialog opened={open} onBackdropClick={onClose} title={title} content={description} buttons={renderButtons()} />
+    <div></div>
+    // <Dialog opened={open} onBackdropClick={onClose} title={title} content={description} buttons={renderButtons()} />
   );
 };
 

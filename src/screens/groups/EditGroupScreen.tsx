@@ -1,42 +1,26 @@
-import { Block, Button, List, ListInput } from 'konsta/react';
-import { useNavigate } from 'react-router';
-import BackIcon from 'src/components/UI/BackIcon';
-import ScreenHeader from 'src/components/UI/ScreenHeader';
+import { Button, Input } from '@telegram-apps/telegram-ui';
+import Page from 'src/components/Page';
 import ScreenTitle from 'src/components/UI/typography/ScreenTitle';
 
 const EditGroupScreen = () => {
-  // Hooks
-  const navigate = useNavigate();
-
-  // Handlers
-  const handleBack = () => {
-    navigate(-1);
-  };
-
   // Renders
   return (
-    <>
-      <ScreenHeader className="flex items-center gap-3">
-        <BackIcon onClick={handleBack} />
-        <ScreenTitle title="Edit group" />
-      </ScreenHeader>
+    <Page>
+      <ScreenTitle title="Edit group" />
 
-      <List className="pr-4">
-        <ListInput label="Name" type="text" placeholder="Grocery" />
-        <div className="py-0.5" />
-        <ListInput label="Name alias" type="text" placeholder="Grocery" />
-        <div className="py-0.5" />
-        <ListInput label="Emoji" type="text" placeholder="🪖" />
-        <div className="py-0.5" />
-        <ListInput label="Budget" type="number" placeholder="3400" />
-        <div className="py-0.5" />
-        <ListInput label="Currency" type="number" placeholder="3000" />
-
-        <Block>
-          <Button>Save</Button>
-        </Block>
-      </List>
-    </>
+      <Input header="Name" type="text" accept="text" placeholder="Grocery" style={{ background: 'transparent' }} />
+      <Input
+        header="Name alias"
+        type="text"
+        accept="text"
+        placeholder="Grocery"
+        style={{ background: 'transparent' }}
+      />
+      <Input header="Emoji" type="text" accept="text" placeholder="🪖" style={{ background: 'transparent' }} />
+      <Input header="Budget" type="number" accept="number" placeholder="3400" style={{ background: 'transparent' }} />
+      <Input header="Currency" type="number" accept="number" placeholder="3000" style={{ background: 'transparent' }} />
+      <Button className="w-full">Save</Button>
+    </Page>
   );
 };
 

@@ -1,34 +1,23 @@
-import { Block, Button, List, ListInput } from 'konsta/react';
-import { useNavigate } from 'react-router';
-import BackIcon from 'src/components/UI/BackIcon';
-import ScreenHeader from 'src/components/UI/ScreenHeader';
+import { Button, Input } from '@telegram-apps/telegram-ui';
+import Page from 'src/components/Page';
 import ScreenTitle from 'src/components/UI/typography/ScreenTitle';
 
 const AddGroupMemberScreen = () => {
-  // Hooks
-  const navigate = useNavigate();
-
-  // Handlers
-  const handleBack = () => {
-    navigate(-1);
-  };
-
   // Renders
   return (
-    <>
-      <ScreenHeader className="flex items-center gap-3">
-        <BackIcon onClick={handleBack} />
-        <ScreenTitle title="Add member" />
-      </ScreenHeader>
+    <Page>
+      <ScreenTitle title="Add member" />
 
-      <List className="pr-4">
-        <ListInput label="Telegram id" type="text" placeholder="@myspend" />
+      <Input
+        header="Telegram id"
+        type="text"
+        accept="text"
+        placeholder="@myspend"
+        style={{ background: 'transparent' }}
+      />
 
-        <Block>
-          <Button>Add member</Button>
-        </Block>
-      </List>
-    </>
+      <Button className="w-full">Add member</Button>
+    </Page>
   );
 };
 

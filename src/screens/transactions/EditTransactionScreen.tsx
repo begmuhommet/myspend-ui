@@ -35,7 +35,7 @@ const EditTransactionScreen = () => {
         {renderCategories()}
       </Select>
 
-      <Button>Save</Button>
+      <Button className="w-full">Save</Button>
     </Page>
   );
 };

@@ -1,4 +1,4 @@
-import { Icon } from 'konsta/react';
+import { Headline, IconButton } from '@telegram-apps/telegram-ui';
 import { FC } from 'react';
 import { IoCreateOutline, IoTrashOutline } from 'react-icons/io5';
 import AppCard from 'src/components/UI/AppCard';
@@ -14,17 +14,19 @@ const CategoryItem: FC<IProps> = (props) => {
   const { category, onDelete, onEdit } = props;
 
   return (
-    <AppCard>
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          {categoryIcons[category as keyof typeof categoryIcons]}
-          <h2 className="text-md font-medium">{category}</h2>
-        </div>
+    <AppCard className="flex items-center justify-between">
+      <div className="flex items-center gap-2">
+        {categoryIcons[category as keyof typeof categoryIcons]}
+        <Headline weight="3">{category}</Headline>
+      </div>
 
-        <div className="flex items-center gap-3">
-          <Icon ios={<IoCreateOutline className="w-5 h-5" />} onClick={() => onEdit(category)} />
-          <Icon ios={<IoTrashOutline className="w-5 h-5" />} onClick={onDelete} />
-        </div>
+      <div className="flex items-center gap-3">
+        <IconButton onClick={() => onEdit(category)}>
+          <IoCreateOutline className="w-5 h-5" />
+        </IconButton>
+        <IconButton onClick={onDelete}>
+          <IoTrashOutline className="w-5 h-5" />
+        </IconButton>
       </div>
     </AppCard>
   );

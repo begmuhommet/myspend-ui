@@ -1,21 +1,32 @@
-import { Actions, ActionsButton, ActionsGroup } from 'konsta/react';
+import { Modal, Placeholder } from '@telegram-apps/telegram-ui';
 import { FC } from 'react';
-import { TbEdit, TbTrash, TbUsers } from 'react-icons/tb';
 
 type TProps = {
   open: boolean;
   onClose: () => void;
-  onEdit: () => void;
-  onDelete: () => void;
-  onMembers: () => void;
+  onEdit?: () => void;
+  onDelete?: () => void;
+  onMembers?: () => void;
 };
 
 const GroupActions: FC<TProps> = (props) => {
-  const { open, onClose, onEdit, onDelete, onMembers } = props;
+  const { open, onClose } = props;
 
   return (
-    <Actions opened={open} onBackdropClick={onClose}>
-      <ActionsGroup>
+    <Modal open={open} onOpenChange={onClose}>
+      <Placeholder description="Description" header="Title">
+        <img
+          alt="Telegram sticker"
+          src="https://xelene.me/telegram.gif"
+          style={{
+            display: 'block',
+            height: '144px',
+            width: '144px',
+          }}
+        />
+      </Placeholder>
+
+      {/* <ActionsGroup>
         <ActionsButton onClick={onMembers} className="flex items-center gap-2">
           <TbUsers className="w-4 h-4" />
           Members
@@ -29,8 +40,8 @@ const GroupActions: FC<TProps> = (props) => {
           Delete
         </ActionsButton>
         <ActionsButton onClick={onClose}>Cancel</ActionsButton>
-      </ActionsGroup>
-    </Actions>
+      </ActionsGroup> */}
+    </Modal>
   );
 };
 
