@@ -1,4 +1,4 @@
-import { Caption, Card, Headline, Text } from '@telegram-apps/telegram-ui';
+import { Caption, Card, Text } from '@telegram-apps/telegram-ui';
 import clsx from 'clsx';
 import { FC } from 'react';
 import { NavLink } from 'react-router';
@@ -19,10 +19,10 @@ const TransactionItem: FC<TProps> = (props) => {
         <div className="flex items-center justify-between gap-3">
           {categoryIcons[transaction.category as keyof typeof categoryIcons]}
           <div className="flex flex-col">
-            <Headline weight="3" plain>
-              {transaction.label}
-            </Headline>
-            <Caption weight="3">{transaction.category}</Caption>
+            <Text weight="3">{transaction.label}</Text>
+            <Caption level="1" weight="3" className="opacity-50">
+              {transaction.category}
+            </Caption>
           </div>
         </div>
 
