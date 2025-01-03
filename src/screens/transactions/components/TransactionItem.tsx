@@ -21,7 +21,7 @@ const TransactionItem: FC<TProps> = (props) => {
           {categoryIcons[transaction.category as keyof typeof categoryIcons]}
           <div className="flex flex-col">
             <Text weight="3">{transaction.label}</Text>
-            <Caption level="1" weight="3" className="opacity-50">
+            <Caption level="1" weight="3" className="text-hint">
               {transaction.category}
             </Caption>
           </div>

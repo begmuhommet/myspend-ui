@@ -41,7 +41,7 @@ const Navbar = () => {
     ));
   };
 
-  return <Tabbar>{renderNavigation()}</Tabbar>;
+  return <Tabbar className="z-50">{renderNavigation()}</Tabbar>;
 };
 
 export default Navbar;

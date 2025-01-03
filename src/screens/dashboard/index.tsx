@@ -6,6 +6,7 @@ const DashboardScreen = () => {
   return (
     <Page back={false}>
       <AccountSummary />
+      <div className="py-2" />
       <LatestTransactions />
     </Page>
   );

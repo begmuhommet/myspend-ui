@@ -23,11 +23,7 @@ const Page: FC<TProps> = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [back]);
 
-  return (
-    <List style={{ background: 'var(--tgui--bg_color)', minHeight: '100vh', padding: `8px 8px 48px 8px` }}>
-      {children}
-    </List>
-  );
+  return <List className="bg-primary min-h-screen px-3 pt-4 pb-12">{children}</List>;
 };
 
 export default Page;

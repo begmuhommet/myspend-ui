@@ -28,13 +28,15 @@ const GroupItem = (props: TProps) => {
         </div>
         <div className="flex flex-col gap-1">
           <div className="flex justify-between">
-            <Caption weight="3" className="text-red-500">
+            <Caption weight="3" className="text-red-500 opacity-10">
               Spent: {group.spent}
             </Caption>
-            <Caption weight="3">Budget: {group.budget}</Caption>
+            <Caption weight="3" className="text-hint">
+              Budget: {group.budget}
+            </Caption>
           </div>
           <div className="w-full">
-            <Progress value={spentProgress * 100} />
+            <Progress className="bg-primary" value={spentProgress * 100} />
           </div>
         </div>
       </AppCard>
