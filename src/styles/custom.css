@@ -1,4 +1,8 @@
 /* Display */
+body {
+  margin: 0;
+}
+
 a {
   color: inherit;
   text-decoration: inherit;
