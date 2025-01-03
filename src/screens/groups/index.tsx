@@ -15,7 +15,7 @@ const GroupsScreen = () => {
       <div className="flex items-center justify-between mb-2">
         <ScreenTitle title="Groups" />
         <NavLink to="/groups/add">
-          <Button mode="filled" size="m">
+          <Button mode="filled" size="s">
             Add group
           </Button>
         </NavLink>
