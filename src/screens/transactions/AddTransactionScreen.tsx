@@ -1,5 +1,4 @@
-import { Button, Input, List, SegmentedControl, Select } from '@telegram-apps/telegram-ui';
-import { SegmentedControlItem } from '@telegram-apps/telegram-ui/dist/components/Navigation/SegmentedControl/components/SegmentedControlItem/SegmentedControlItem';
+import { Button, Input, SegmentedControl, Select } from '@telegram-apps/telegram-ui';
 import { useState } from 'react';
 import Page from 'src/components/Page';
 import { mockCategories } from 'src/mocks/mock-categories';
@@ -27,31 +26,29 @@ const AddTransactionScreen = () => {
 
   return (
     <Page back={false}>
-      <List style={{ background: 'var(--tgui--secondary_bg_color)' }}>
-        <SegmentedControl className="mb-4">
-          <SegmentedControlItem onClick={() => setActiveSegmented(1)} selected={activeSegmented === 1}>
-            Spend
-          </SegmentedControlItem>
-          <SegmentedControlItem onClick={() => setActiveSegmented(2)} selected={activeSegmented === 2}>
-            Income
-          </SegmentedControlItem>
-        </SegmentedControl>
+      <SegmentedControl className="mb-4">
+        <SegmentedControl.Item onClick={() => setActiveSegmented(1)} selected={activeSegmented === 1}>
+          Spend
+        </SegmentedControl.Item>
+        <SegmentedControl.Item onClick={() => setActiveSegmented(2)} selected={activeSegmented === 2}>
+          Income
+        </SegmentedControl.Item>
+      </SegmentedControl>
 
-        <Input header="Amount" type="number" accept="number" placeholder="300" />
-        <Input header="Label" type="text" placeholder="Car wash" />
-        <Select header="Group" value="Personal" onChange={() => {}}>
-          {renderGroups()}
-        </Select>
-        <Select header="Category" value="Car" onChange={() => {}}>
-          {renderCategories()}
-        </Select>
+      <Input header="Amount" type="number" accept="number" placeholder="300" />
+      <Input header="Label" type="text" placeholder="Car wash" />
+      <Select header="Group" value="Personal" onChange={() => {}}>
+        {renderGroups()}
+      </Select>
+      <Select header="Category" value="Car" onChange={() => {}}>
+        {renderCategories()}
+      </Select>
 
-        <div className="py-0.5" />
+      <div className="py-0.5" />
 
-        <Button mode="filled" size="m" className="w-full">
-          Add Transaction
-        </Button>
-      </List>
+      <Button mode="filled" size="m" className="w-full">
+        Add Transaction
+      </Button>
     </Page>
   );
 };

@@ -1,7 +1,8 @@
-import { Caption, Card, Text } from '@telegram-apps/telegram-ui';
+import { Caption, Text } from '@telegram-apps/telegram-ui';
 import clsx from 'clsx';
 import { FC } from 'react';
 import { NavLink } from 'react-router';
+import AppCard from 'src/components/UI/AppCard';
 import { categoryIcons } from 'src/mocks/mock-categories';
 
 type TProps = {
@@ -15,7 +16,7 @@ const TransactionItem: FC<TProps> = (props) => {
   // Renders
   return (
     <NavLink to={`/transactions/${transaction.id}/edit`}>
-      <Card className="w-full flex items-center justify-between p-4 box-border">
+      <AppCard className="w-full flex items-center justify-between p-4 box-border">
         <div className="flex items-center justify-between gap-3">
           {categoryIcons[transaction.category as keyof typeof categoryIcons]}
           <div className="flex flex-col">
@@ -30,7 +31,7 @@ const TransactionItem: FC<TProps> = (props) => {
           {isIncome ? '+' : '-'}
           {transaction.amount}
         </Text>
-      </Card>
+      </AppCard>
     </NavLink>
   );
 };

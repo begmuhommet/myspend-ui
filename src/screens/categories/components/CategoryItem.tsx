@@ -1,6 +1,7 @@
-import { Card, Icon } from 'konsta/react';
+import { Icon } from 'konsta/react';
 import { FC } from 'react';
 import { IoCreateOutline, IoTrashOutline } from 'react-icons/io5';
+import AppCard from 'src/components/UI/AppCard';
 import { categoryIcons } from 'src/mocks/mock-categories';
 
 type IProps = {
@@ -13,7 +14,7 @@ const CategoryItem: FC<IProps> = (props) => {
   const { category, onDelete, onEdit } = props;
 
   return (
-    <Card className="!m-0">
+    <AppCard>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           {categoryIcons[category as keyof typeof categoryIcons]}
@@ -25,7 +26,7 @@ const CategoryItem: FC<IProps> = (props) => {
           <Icon ios={<IoTrashOutline className="w-5 h-5" />} onClick={onDelete} />
         </div>
       </div>
-    </Card>
+    </AppCard>
   );
 };
 

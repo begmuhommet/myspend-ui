@@ -1,11 +1,12 @@
-import { Card, Cell, Headline, LargeTitle, Subheadline, Title } from '@telegram-apps/telegram-ui';
+import { Cell, Headline, LargeTitle, Subheadline, Title } from '@telegram-apps/telegram-ui';
 import { GiTwoCoins } from 'react-icons/gi';
 import { IoArrowDown, IoArrowUp } from 'react-icons/io5';
+import AppCard from 'src/components/UI/AppCard';
 
 const AccountSummary = () => {
   return (
     <>
-      <Card className="relative w-full flex items-center justify-between box-border p-4 mb-2">
+      <AppCard className="relative w-full flex items-center justify-between box-border p-4 mb-2">
         <div className="flex flex-col gap-2">
           <Headline weight="3" plain>
             Total Balance
@@ -16,10 +17,10 @@ const AccountSummary = () => {
         </div>
 
         <GiTwoCoins className="w-36 h-36 text-gray-400 absolute right-0 top-auto bottom-auto" />
-      </Card>
+      </AppCard>
 
       <div className="flex items-center justify-between gap-2">
-        <Card className="w-full flex-1 relative">
+        <AppCard className="w-full flex-1 relative">
           <Cell className="flex flex-col items-start gap-2">
             <Subheadline weight="3" plain>
               Income
@@ -29,8 +30,8 @@ const AccountSummary = () => {
             </Title>
           </Cell>
           <IoArrowDown className="w-4 h-4 text-green-500 absolute right-2 top-2" />
-        </Card>
-        <Card className="w-full flex-1 relative">
+        </AppCard>
+        <AppCard className="w-full flex-1 relative">
           <Cell className="flex flex-col items-start gap-2">
             <Subheadline weight="3" plain>
               Spent
@@ -40,7 +41,7 @@ const AccountSummary = () => {
             </Title>
           </Cell>
           <IoArrowUp className="w-4 h-4 text-red-500 absolute right-2 top-2" />
-        </Card>
+        </AppCard>
       </div>
     </>
   );

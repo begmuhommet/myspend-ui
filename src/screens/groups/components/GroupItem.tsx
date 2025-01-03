@@ -1,6 +1,7 @@
-import { Caption, Card, Headline, Progress, Text } from '@telegram-apps/telegram-ui';
+import { Caption, Headline, Progress, Text } from '@telegram-apps/telegram-ui';
 import { IoPeopleOutline } from 'react-icons/io5';
 import { NavLink } from 'react-router';
+import AppCard from 'src/components/UI/AppCard';
 
 type TProps = {
   group: { name: string; balance?: number; spent?: number; budget?: number };
@@ -15,7 +16,7 @@ const GroupItem = (props: TProps) => {
   // Renders
   return (
     <NavLink to={`/groups/${group.name}/transactions`}>
-      <Card className="w-full p-4 box-border">
+      <AppCard className="w-full box-border">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-2">
             <IoPeopleOutline className="w-5 h-5" />
@@ -36,7 +37,7 @@ const GroupItem = (props: TProps) => {
             <Progress value={spentProgress * 100} />
           </div>
         </div>
-      </Card>
+      </AppCard>
     </NavLink>
   );
 };
