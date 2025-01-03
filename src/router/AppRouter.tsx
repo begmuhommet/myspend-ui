@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router';
+import { Navigate, Route, Routes } from 'react-router';
 import BudgetsScreen from 'src/screens/budgets';
 import AddBudgetScreen from 'src/screens/budgets/AddBudgetScreen';
 import EditBudgetScreen from 'src/screens/budgets/EditBudgetScreen';
@@ -62,6 +62,8 @@ const AppRouter = () => {
       </Route>
 
       <Route path="/reports" element={<ReportsScreen />} />
+
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 };
