@@ -9,7 +9,7 @@ const ScreenTitle: FC<TProps> = (props) => {
   const { title } = props;
 
   return (
-    <Title weight="2" plain>
+    <Title weight="2" plain className="px-5">
       {title}
     </Title>
   );
