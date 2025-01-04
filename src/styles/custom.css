@@ -1,0 +1,15 @@
+.bg-primary {
+  background-color: var(--tgui--bg_color);
+}
+
+.bg-secondary {
+  background-color: var(--tgui--secondary_bg_color);
+}
+
+.text-hint {
+  color: var(--tgui--hint_color);
+}
+
+.text-theme {
+  color: var(--tgui--text_color);
+}
